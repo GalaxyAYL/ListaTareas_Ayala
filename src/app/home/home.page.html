@@ -1,0 +1,70 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font—awosome/4.7.0/css/font-awasome.min.css">
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Organizador de actividades</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+
+  <ion-content >
+    <ion-progress-bar></ion-progress-bar>
+    <ion-item>
+      <ion-input type="text"  style="display: flex;"
+      placeholder="Ingrese tarea" [(ngModel)]="nuevaTarea"></ion-input>
+      <ion-button (click)="agregarTarea()">Agregar</ion-button>
+    </ion-item>
+
+    <ion-list>
+      <ion-item *ngFor="let tarea of tareas">
+        <ion-label>{{tarea.title}}</ion-label>
+        <ion-checkbox [(ngModel)]="tarea.completed"></ion-checkbox>
+      </ion-item>
+    </ion-list>
+
+
+
+  </ion-content>
+
+
+
+  <ion-footer style="background-color: rgba(200, 200, 200, 0.08);">
+    <ul>
+      <li><a href="../app/agregar/agregar.component.html"><i class="fa fa-home"></i></a></li>
+      <li><a><i class="fa fa-user-circle-o"></i></a></li>
+      <li><a><i class="fa fa-plus-square-o"></i></a></li>
+      <li><a><i class="fa fa-sound-o"></i></a></li>
+      <li><a><i class="fa fa-gear"></i></a></li>
+      <div id="marcador"></div>
+    </ul>
+  </ion-footer>
+
+
+<script>
+  // Obtiene el elemento marcador y todos los elementos de la lista
+  let marcador = document.querySelector('#marcador');
+  let list = document.querySelectorAll('ul li');
+
+  // Función que mueve el marcador a la posición del elemento activo
+  function moverIndicador(e) {
+    marcador.style.left = e.offsetLeft + 'px';
+    marcador.style.width = e.offsetWidth + 'px';
+  }
+
+  // Agrega el evento mousemove a cada elemento de la lista para actualizar el marcador
+  list.forEach(link => {
+    link.addEventListener('mousemove', (e) => {
+      moverIndicador(e.target);
+    });
+  });
+
+  // Función que agrega la clase activo al elemento seleccionado y la remueve de los demás elementos
+  function activo() {
+    list.forEach((item) =>
+      item.classList.remove('activo'));
+    this.classList.add('activo');
+  }
+
+  // Agrega el evento mousemove y activo a cada elemento de la lista
+  list.forEach((item) =>
+    item.addEventListener('mousemove', activo));
+</script>

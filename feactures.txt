@@ -1,0 +1,27 @@
+Ingresar tareas, editar tarea
+ver tarea, finalizadas
+
+tarea
+	titulo
+	descripcion
+	categoria
+	fecha entrega
+	importancia
+
+editar tarea
+	Cambiar titulo
+	Cambiar categoria
+	Cambiar descripcion
+	Cambiar fecha entrega
+	Cambiar importancia
+
+eliminar
+	Eliminar cualquier cosa
+
+ver tarea
+	orden por fecha
+	Actividades por fecha
+	marcar como finalizado
+
+finalizadas
+	Desmarcar como finalizada
